@@ -1,0 +1,135 @@
+{
+    "info": {
+        "name": "REST API Versioning Demo",
+        "description": "Collection to test API versioning using Accept header",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Hello Endpoint v1",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json;v=1",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8083/hello",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8083",
+                    "path": ["hello"]
+                },
+                "description": "Basic hello endpoint - version 1"
+            }
+        },
+        {
+            "name": "Hello Endpoint v2",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json;v=2",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8083/hello",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8083",
+                    "path": ["hello"]
+                },
+                "description": "Enhanced hello endpoint - version 2"
+            }
+        },
+        {
+            "name": "User Greet v1",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json;v=1",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8083/greet",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8083",
+                    "path": ["greet"]
+                },
+                "description": "Basic user greeting - version 1"
+            }
+        },
+        {
+            "name": "User Greet v2",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json;v=2",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8083/greet",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8083",
+                    "path": ["greet"]
+                },
+                "description": "Enhanced user greeting - version 2"
+            }
+        },
+        {
+            "name": "User Welcome v1",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json;v=1",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8083/welcome",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8083",
+                    "path": ["welcome"]
+                },
+                "description": "Basic user welcome - version 1"
+            }
+        },
+        {
+            "name": "User Welcome v2",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json;v=2",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8083/welcome",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8083",
+                    "path": ["welcome"]
+                },
+                "description": "Enhanced user welcome - version 2"
+            }
+        }
+    ]
+}
