@@ -59,7 +59,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "http://localhost:8083/greet",
+                    "raw": "http://localhost:8083/helloUser/greet",
                     "protocol": "http",
                     "host": ["localhost"],
                     "port": "8083",
@@ -80,7 +80,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "http://localhost:8083/greet",
+                    "raw": "http://localhost:8083/helloUser/greet",
                     "protocol": "http",
                     "host": ["localhost"],
                     "port": "8083",
@@ -101,7 +101,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "http://localhost:8083/welcome",
+                    "raw": "http://localhost:8083/helloUser/welcome",
                     "protocol": "http",
                     "host": ["localhost"],
                     "port": "8083",
@@ -122,7 +122,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "http://localhost:8083/welcome",
+                    "raw": "http://localhost:8083/helloUser/welcome",
                     "protocol": "http",
                     "host": ["localhost"],
                     "port": "8083",

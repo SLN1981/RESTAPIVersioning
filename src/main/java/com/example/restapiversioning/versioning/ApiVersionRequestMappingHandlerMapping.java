@@ -6,6 +6,7 @@ import org.springframework.web.servlet.mvc.condition.RequestCondition;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,10 @@ public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandle
 
     /** Pattern to match version number in Accept header with format "application/json;v=N" */
     private static final Pattern VERSION_PREFIX_PATTERN = Pattern.compile("application/json;v=(\\d+)$");
+
+
+
+
 
     /**
      * Checks for @ApiVersion annotation at the class level and creates appropriate request conditions.
@@ -79,7 +84,8 @@ public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandle
          */
         @Override
         public ApiVersionRequestCondition combine(ApiVersionRequestCondition other) {
-            return new ApiVersionRequestCondition(other.versions);
+            return other != null && other.versions != null && other.versions.length > 0 ?
+                    other : this;
         }
 
         /**
@@ -93,20 +99,25 @@ public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandle
         public ApiVersionRequestCondition getMatchingCondition(HttpServletRequest request) {
             String acceptHeader = request.getHeader("Accept");
             if (acceptHeader == null) {
+                System.out.println("No Accept header found");
                 return null;
             }
 
             Matcher matcher = VERSION_PREFIX_PATTERN.matcher(acceptHeader);
             if (!matcher.matches()) {
+                System.out.println("Accept header doesn't match pattern: " + acceptHeader);
                 return null;
             }
 
             int version = Integer.parseInt(matcher.group(1));
+            System.out.println("Requested version: " + version + ", available versions: " + Arrays.toString(versions));
             for (int v : versions) {
                 if (v == version) {
+                    System.out.println("Version match found: " + v);
                     return this;
                 }
             }
+            System.out.println("No matching version found");
             return null;
         }
 
